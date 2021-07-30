@@ -3,7 +3,7 @@
     <div class="card block">
       <div class="card-content">
         <div class="content">
-          <h1 class="title is-2">CM to Inch</h1>
+          <h1 class="title is-2">Inch to Centimeter</h1>
           <b-field label="In inch">
             <b-input v-model="inches" type="number" value="0"></b-input>
           </b-field>

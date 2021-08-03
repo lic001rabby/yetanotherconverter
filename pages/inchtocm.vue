@@ -14,7 +14,7 @@
               indicator
               :tooltip="false"
               :max="10000"
-              :format="format"
+
             ></b-slider>
           </b-field>
           <h2 class="title is-3">{{ centimeter.toFixed(3) }} centimeters</h2>

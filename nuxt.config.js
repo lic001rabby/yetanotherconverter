@@ -13,7 +13,7 @@ export default {
     },
   }, */
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
+  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,7 +31,8 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+
+  scss: ['@/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -49,8 +50,9 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/buefy
     'nuxt-buefy',
+    // https://go.nuxtjs.dev/buefy
+    ['nuxt-buefy',{ css: false }],
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
@@ -60,4 +62,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};

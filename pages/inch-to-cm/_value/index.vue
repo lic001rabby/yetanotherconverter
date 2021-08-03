@@ -3,20 +3,20 @@
     <div class="card block">
       <div class="card-content">
         <div class="content">
-          <h1 class="title is-2">CM to Inch</h1>
-          <b-field label="In Centimeter">
-            <b-input v-model="centimeter" type="number" value="0"></b-input>
+          <h1 class="title is-2">Inch to Centimeter</h1>
+          <b-field label="In inch">
+            <b-input v-model="inches" type="number" value="0"></b-input>
           </b-field>
           <b-field label="">
             <b-slider
-              v-model="centimeter"
+              v-model="inches"
               lazy
               indicator
               :tooltip="false"
-              :max="10000"
+              :max="100000"
             ></b-slider>
           </b-field>
-          <h2 class="title is-3">{{ inches.toFixed(3) }}</h2>
+          <h2 class="title is-3">{{ centimeter.toFixed(3) }} centimeters</h2>
         </div>
       </div>
     </div>
@@ -30,15 +30,14 @@
                 There are {{ inchPerCm }} inches per centimeter and there are
                 {{ cmPerInch }}
                 centimeters per inch. Therefore, you can get the answer to "{{
-                  centimeter
+                  inches
                 }}
-                centimeters in inches?" in two different ways. You can either
-                multiply {{ centimeter }} by {{ inchPerCm }} or divide
-                {{ centimeter }} by {{ cmPerInch }}. Here is the math to get the
-                answer by dividing {{ centimeter }} centimeters by
-                {{ inchPerCm }}.
+                inchs in centimeters?" in two different ways. You can either
+                multiply {{ inches }} by {{ cmPerInch }} or divide
+                {{ inches }} by {{ inchPerCm }}. Here is the math to get the
+                answer by multiplying {{ inches }} inches by {{ cmPerInch }}.
               </p>
-              <h2 class="title is-3">{{ inches.toFixed(3) }}</h2>
+              <h2 class="title is-3">{{ centimeter.toFixed(2) }}</h2>
             </div>
           </div>
         </div>
@@ -54,6 +53,9 @@
         <div class="card">
           <div class="card-content">
             <span class="is-4">Space for content</span>
+            <!-- <nuxt-link :to="`${inches + 1}/inchtocm`">{{
+              inches + 1
+            }}</nuxt-link> -->
           </div>
         </div>
       </div>
@@ -68,16 +70,19 @@ export default {
   components: {},
   data() {
     return {
-      centimeter: 0,
+      inches: 0,
       cmPerInch: 2.54,
       inchPerCm: 0.3937008,
     }
   },
   computed: {
-    inches() {
-      if (this.centimeter === 0) return 0
-      return this.centimeter / this.cmPerInch
+    centimeter() {
+      if (this.inches === 0) return 0
+      return this.inches * this.cmPerInch
     },
+  },
+  mounted() {
+    this.inches = this.$route.params.value
   },
 }
 </script>

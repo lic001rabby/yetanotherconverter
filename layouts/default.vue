@@ -7,7 +7,7 @@
     >
       <div class="navbar-brand">
         <a class="navbar-item title is-4 has-text-weight-bold" href="/">
-          Yetanotherconverter
+          CM to Inch
         </a>
 
         <div class="navbar-burger">
@@ -47,11 +47,7 @@ export default {
           icon: 'home',
           to: { name: 'index' },
         },
-        {
-          title: 'Inch to CM',
-          icon: 'lightbulb',
-          to: { name: 'inchtocm' },
-        },
+
       ],
     }
   },

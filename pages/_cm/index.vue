@@ -5,11 +5,11 @@
         <div class="content">
           <h1 class="title is-2">CM to Inch converter</h1>
           <b-field label="In Centimeter">
-            <b-input lazy  :value="centimeter" type="number"  @blur="$router.push(`/${centimeter}`)"></b-input>
+            <b-input v-model="centimeter"  lazy  type="number" @blur="$router.push(`/${centimeter}`)" ></b-input>
           </b-field>
           <b-field label="">
             <b-slider
-            v-model="centimeter"
+              :value="centimeter"
               lazy
               indicator
               :tooltip="false"
@@ -59,7 +59,6 @@
           </div>
         </div>
       </div>
-
 
 
     </div>
@@ -134,23 +133,29 @@
         </div>
       </div>
     </div>
-        <quick-links :centimeter="Number(centimeter)"></quick-links>
     <!-- <div class="container">
           <b-table :data="chartData" :columns="columns"></b-table>
     </div> -->
+    <quick-links :centimeter="Number(centimeter)"></quick-links>
   </section>
 </template>
 
 <script>
-import QuickLinks from '~/components/QuickLinks.vue'
 export default {
+
   name: 'HomePage',
 
-  components: {QuickLinks},
+  components: {},
+  asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
+    const centimeter = Number(route.params.cm);
+    const title= `${centimeter} to inch`;
+
+    return {centimeter, title}
+  },
+
   data() {
     return {
-      homepage: true,
-      centimeter: 1,
+
       cmPerInch: 2.54,
       inchPerCm: 0.3937008,
       chartData: [
@@ -174,9 +179,10 @@ export default {
   },
   head(){
     return {
-      title: "Convert centimeter to inch"
+      title: `${this.centimeter}cm to inch`
     }
   },
+
   computed: {
     inches() {
       if (this.centimeter === 0) return 0

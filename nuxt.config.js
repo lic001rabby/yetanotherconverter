@@ -52,7 +52,7 @@ export default {
   modules: [
     'nuxt-buefy',
     // https://go.nuxtjs.dev/buefy
-    ['nuxt-buefy',{ css: false }],
+    ['nuxt-buefy',{ css: false, materialDesignIcons: false }],
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],

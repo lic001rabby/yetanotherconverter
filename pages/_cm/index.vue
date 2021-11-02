@@ -179,7 +179,7 @@ export default {
   },
   head(){
     return {
-      title: `${this.centimeter}cm to inch`
+      title: `${this.centimeter} cm to inch`
     }
   },
 

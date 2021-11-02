@@ -5,7 +5,7 @@
         <div class="content">
           <h1 class="title is-2">CM to Inch converter</h1>
           <b-field label="In Centimeter">
-            <b-input v-model="centimeter"  lazy  type="number" @blur="$router.push(`/${centimeter}`)" ></b-input>
+            <b-input v-model="centimeter"  type="number" @blur="$router.push(`/${centimeter}`)" ></b-input>
           </b-field>
           <b-field label="">
             <b-slider

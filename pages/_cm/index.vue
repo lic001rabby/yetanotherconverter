@@ -3,7 +3,7 @@
     <div class="card block">
       <div class="card-content">
         <div class="content">
-          <h1 class="title is-2">CM to Inch converter</h1>
+          <h1 class="title is-2">Convert {{centimeter}} Centimeters to Inches</h1>
           <b-field label="In Centimeter">
             <b-input v-model="centimeter"  type="number" @blur="$router.push(`/${centimeter}`)" ></b-input>
           </b-field>

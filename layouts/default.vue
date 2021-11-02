@@ -1,34 +1,25 @@
 <template>
   <div>
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a class="navbar-item title is-4 has-text-weight-bold" href="/">
+
+    <b-navbar class="is-primary">
+        <template #brand>
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <a style="color:#fff;" class="navbar-item title is-4 has-text-weight-bold" href="/">
           CM to Inch
         </a>
+            </b-navbar-item>
+        </template>
+        <template #start>
+            <b-navbar-item href="/">
+                Home
+            </b-navbar-item>
 
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
+        </template>
+
+    </b-navbar>
 
     <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">General</p>
-        <ul class="menu-list">
-          <li v-for="(item, key) of items" :key="key">
-            <NuxtLink :to="item.to" exact-active-class="is-active">
-          {{ item.title }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </aside>
+
 
       <div class="container column is-10">
         <Nuxt />
